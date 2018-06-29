@@ -142,7 +142,7 @@ func (s *solrZkInstance) GetReplicaUris() ([]string, error) {
 	nodes := cs.LiveNodes
 	uris := make([]string, len(nodes))
 	for i, v := range nodes {
-		host := fmt.Sprintf("%s://%s/v2/c", protocol, v)
+		host := fmt.Sprintf("%s://%s", protocol, v)
 		uris[i] = host
 	}
 	return shuffleNodes(uris), nil
